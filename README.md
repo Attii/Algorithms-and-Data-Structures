@@ -8,7 +8,6 @@ Solving algorithmic problems in C++
   <summary>Nearest zero (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint1/nearest_zero.cpp">nearest_zero.cpp</a>)</summary>
  
   <br>
-
 ### Task
   
   Timofey is looking for a place to build a house. The street where he wants to live has a length of n, meaning it consists of n  identical consecutive plots. Each plot is either empty or already has a house built on it.
