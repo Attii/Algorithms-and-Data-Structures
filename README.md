@@ -4,9 +4,9 @@ Solving algorithmic problems in C++
 ## 1. Introduction to Algorithms 
 [contest.yandex.ru](https://contest.yandex.ru/contest/22449/problems/)
 <details>
-  <summary>Nearest zero[nearest_zero.cpp](https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint1/nearest_zero.cpp)</summary>
+  **<summary>Nearest zero[nearest_zero.cpp](https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint1/nearest_zero.cpp)</summary>**
   <br>
-  ### Task
+  Task
   Timofey is looking for a place to build a house. The street where he wants to live has a length of \( n \), meaning it consists of \( n \) identical consecutive plots. Each plot is either empty or already has a house built on it.
 
 Sociable Timofey does not want to live far from other people on this street. Therefore, it is important for him to know the distance from each plot to the nearest empty plot. If the plot is empty, this distance will be zero — the distance to itself.
