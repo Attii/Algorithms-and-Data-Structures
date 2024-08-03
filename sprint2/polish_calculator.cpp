@@ -1,29 +1,30 @@
 // https://contest.yandex.ru/contest/22781/run-report/95326400/
 
 /*
---Принцип работы--
+--Principle of Operation--
 
-Для решение этой задачи я использовал собственную реализацию стэка. 
+To solve this task, I used a custom implementation of a stack.
 
-Числа складываются в стэк. Если попадается знак операции, то берутся два верхних
-числа из стэка и результат операции опять кладется на вершину стэка. Результат 
-выражения будет находится на вершине стэка.
+Numbers are pushed onto the stack. If an operation sign is encountered, two 
+top numbers are taken from the stack, and the result of the operation is pushed 
+back onto the top of the stack. The result of the expression will be at the top of 
+the stack.
 
-В случае отрицательных чисел я использовал функцию floor для округления результата вниз. 
+In the case of negative numbers, I used the `floor` function to round the result down.
 
-Для удобства работы со строкой я написал функцию для разделения строки на отдельные 
-строки, которые сохраняю в векторе. 
+For convenience in working with the string, I wrote a function to split the string into 
+individual substrings, which are stored in a vector.
 
---Временная сложность--
+--Time Complexity--
 
-Для обработки строки нам требуется O(n) времени, так так проходим по строке один раз. 
+To process the string, we require O(n) time, as we traverse the string once.
 
-Для вычисления резельтата выраения также требуется O(n) времени, так как мы проходим по 
-вектору один раз. Для хранения чисел и промежуточных результатов используется стэк, а операции 
-push и pop занимают O(1) времени. 
+To compute the result of the expression also requires O(n) time, as we traverse the vector 
+once. For storing numbers and intermediate results, we use a stack, and the `push` and `pop` 
+operations take O(1) time.
 
---Пространственная сложность--
-Объем памяти занимаемой памяти зависит от размера входной строки. 
+--Space Complexity--
+The amount of memory used depends on the size of the input string.
 */
 
 #include <iostream>
