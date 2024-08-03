@@ -1,39 +1,40 @@
 // https://contest.yandex.ru/contest/22781/run-report/95325199/
 
 /*
---Принцип работы--
+--Principle of Operation--
 
-Реализация данной задачи является улучшение решения задачи Ограниченная очередь.
+The implementation of this task improves upon the solution for the Bounded Queue problem.
 
-Для хранения данных использовался вектор. Индексы "головы" и "хвоста" (начало и конец
-соответственно) хранятся в переменных типа integer.
+A vector is used for data storage. The indices of the "head" and "tail" (beginning and end, 
+respectively) are stored in integer variables.
 
-При добавлении в конец очереди используется переменная tail_. После добавления она
-увеличивается на единицу. Дабы не вылезти за максимальный размер очереди, берется 
-остаток от деления индекса на максимальный размер.
+When adding to the end of the deque, the `tail_` variable is used. After adding, it is 
+incremented by one. To avoid exceeding the maximum size of the deque, the index is taken 
+modulo the maximum size.
 
-При добавлении в начало очереди индекс начала всегда сдвигается вперёд путем вычитания 
-единицы. Если индекс равняется нулю, приравниваем его к max_size_ - 1
+When adding to the beginning of the deque, the start index is always moved forward by 
+subtracting one. If the index equals zero, it is set to `max_size_ - 1`.
 
-В функции pop_back перед печатью мы уменьшаем индекс конца на единицу, так так индекс 
-конца всегда (если возможно) указывает на последнее свободное место. В pop_front уменьшение 
-происходит после печати, так как индекс начала всегда указыват на первый элемент.
+In the `pop_back` function, the tail index is decremented by one before printing, as the 
+tail index always (if possible) points to the last free space. In `pop_front`, the decrement 
+occurs after printing because the head index always points to the first element.
 
---Доказательство корректности--
+--Proof of Correctness--
 
-Обращение к элементу в векторе происходит за время О(1), так как нам всегда известен 
-индекс начала и конца очереди.
+Accessing an element in the vector occurs in O(1) time since the indices of the beginning and 
+end of the deque are always known.
 
---Временная сложность--
+--Time Complexity--
 
-Добавление в вектор с заранее зарезервированным местом в памяти происходит за О(1)
+Adding to a vector with pre-allocated memory space occurs in O(1) time.
 
-Удаление происходит путем приравнивания элемента к NULL, что тоже будет происходить за константное время.
+Deletion involves setting an element to NULL, which also occurs in constant time.
 
---Пространственная сложность--
+--Space Complexity--
 
-Объем использованной памяти зависит напрямую от максимального размера очереди, так как при инициализации 
-очереди происходит сразу же резервация места под вектор с помощью функции вектора resize().
+The amount of memory used directly depends on the maximum size of the deque, as space is 
+immediately reserved for the vector during initialization using the `resize()` function of 
+the vector.
 */
 
 #include <iostream>
