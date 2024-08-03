@@ -204,3 +204,93 @@ pop_back
 102
 ```
 </details>
+
+<details><summary>Calculator (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint2/polish_calculator.cpp">polish_calculator.cpp</a>)</summary>
+  <br>
+
+  ### Task 
+
+The task is related to reverse Polish notation. It is used for parsing arithmetic expressions. It is also sometimes called postfix notation.
+
+In postfix notation, operands are located before the operators.
+
+Example 1:
+```
+3 4 +
+```
+means 3 + 4 and equals 7.
+
+Example 2:
+```
+12 5 /
+```
+Since division is integer division, the result is 2.
+
+Example 3:
+```
+10 2 4 * -
+```
+means 10 - 2 * 4 and equals 2.
+
+Let's analyze the last example in more detail:
+
+The * sign is immediately after the numbers 2 and 4, so the operation indicated by this sign must be applied to them, that is, multiply these two numbers. As a result, we get 8.
+
+After that, the expression becomes:
+
+```
+10 8 -
+```
+The "minus" operation must be applied to the two preceding numbers, that is, 10 and 8. As a result, we get 2.
+
+Let's consider the algorithm in more detail. To implement it, we will use a stack.
+
+To calculate the value of an expression written in reverse Polish notation, you need to read the expression from left to right and follow these steps:
+
+1. **Process the input symbol**:
+   - If an operand is encountered, it is placed on the top of the stack.
+   - If an operation sign is encountered, the operation is performed on the required number of values taken from the stack in the order they were added. The result of the performed operation is placed on the top of the stack.
+2. **If the input set of characters is not fully processed, go back to step 1**.
+3. **After fully processing the input set of characters, the result of the expression calculation is on the top of the stack**. If there are several numbers left in the stack, only the top element should be output.
+
+**Note about negative numbers and division**: In this task, division is understood as mathematical integer division. This means that rounding always occurs downwards. Specifically, if `a / b = c`, then `b ⋅ c` is the largest number that does not exceed `a` and is simultaneously divisible by `b`.
+
+For example, `-1 / 3 = -1`. Be careful: in C++, Java, and Go, for instance, division works differently.
+
+In the current task, it is guaranteed that there is no division by a negative number.
+
+### Input Format
+The single line contains an expression written in reverse Polish notation. Numbers and arithmetic operations are separated by spaces.
+
+The input may include the operations: `+`, `-`, `*`, `/` and numbers, whose absolute value does not exceed 10000.
+
+It is guaranteed that the value of intermediate expressions in the test data does not exceed 50000 in absolute value.
+
+### Output Format
+Output a single number — the value of the expression.
+
+### Example 1
+
+**Input**:
+```
+2 1 + 3 *
+```
+
+**Output**:
+```
+9
+```
+
+### Example 2
+
+**Input**:
+```
+7 2 + 4 * 2 +
+```
+
+**Output**:
+```
+38
+```
+  
+</details>
