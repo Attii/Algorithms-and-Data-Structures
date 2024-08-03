@@ -294,3 +294,56 @@ Output a single number — the value of the expression.
 ```
   
 </details>
+
+## 3. Recursion and sorting
+[contest.yandex.ru](https://contest.yandex.ru/contest/23638/problems/)
+
+<details><summary>Search in a broken array (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint3/broken_search.cpp">broken_search.cpp</a>)</summary>
+<br>
+
+  ### Task 
+
+Alla made a mistake when copying data from one data structure to another. She stored an array of numbers in a circular buffer. The array was sorted in ascending order, allowing elements to be found in logarithmic time. Alla copied the data from the circular buffer to a regular array but shifted the data of the original sorted sequence (the array could still remain sorted). Nonetheless, it's necessary to ensure the ability to find an element in it in O(log n) time.
+You can assume that the array contains only unique elements.
+You are required to implement a function that performs the search in the broken array. Note that reading data and printing the answer is not required.
+
+### Input format
+The function accepts an array of natural numbers and a target number k. The length of the array does not exceed 10000. The elements of the array and the number k do not exceed 10000 in value.
+In the examples:
+The first line contains the number n — the length of the array.
+The second line contains a positive number k — the target element.
+In the next line, n natural numbers are given separated by spaces — the elements of the array.
+
+### Output format
+The function should return the index of the element equal to k if it is present in the array (indexing starts from zero). If the element is not found, the function should return -1.
+The array cannot be modified.
+To filter out inefficient solutions, your function will be run from 10000 to 1000000 times.
+
+### Example 1
+
+**Input**:
+```
+9
+5
+19 21 100 101 1 4 5 7 12
+```
+
+**Output**:
+```
+6
+```
+
+### Example 2
+
+**Input**:
+```
+2
+1
+5 1
+```
+
+**Output**:
+```
+1
+```
+</details>
