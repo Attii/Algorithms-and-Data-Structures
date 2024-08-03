@@ -123,7 +123,7 @@ Print a single number — the maximum number of points that Gosha and Timofey ca
 ## 2. Basic structures
 [contest.yandex.ru](https://contest.yandex.ru/contest/22779/problems/)
 
-<details>>
+<details>
   <summary>Deque (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint2/my_sized_deque.cpp">my_sized_deque.cpp</a>)</summary>
   
   <br>
