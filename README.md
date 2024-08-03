@@ -125,6 +125,7 @@ Print a single number — the maximum number of points that Gosha and Timofey ca
 
 <details>>
   <summary>Deque (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint2/my_sized_deque.cpp">my_sized_deque.cpp</a>)</summary>
+  
   <br>
 
 ### Task
