@@ -118,3 +118,89 @@ Print a single number — the maximum number of points that Gosha and Timofey ca
 0
 ```
 </details>
+
+## 2. Basic structures
+[contest.yandex.ru](https://contest.yandex.ru/contest/22779/problems/)
+
+<details>>
+  <summary>Deque (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint2/my_sized_deque.cpp">my_sized_deque.cpp</a>)</summary>
+  <br>
+
+### Task
+Gosha implemented a data structure called Deque (double-ended queue), where the maximum size is determined by a given number. The methods `push_back(x)`, `push_front(x)`, `pop_back()`, and `pop_front()` worked correctly. However, if the deque had many elements, the program ran very slowly. The problem was that not all operations were performed in O(1) time complexity. Help Gosha! Write an efficient implementation.
+
+Attention: Use a circular buffer for the implementation.
+
+### Input format
+The first line contains the number of commands `n` — an integer not exceeding 100,000. The second line contains the number `m` — the maximum size of the deque. It does not exceed 50,000. The next `n` lines contain one of the following commands:
+
+- `push_back(value)` – add an element to the end of the deque. If the deque already contains the maximum number of elements, output "error".
+- `push_front(value)` – add an element to the beginning of the deque. If the deque already contains the maximum number of elements, output "error".
+- `pop_front()` – output the first element of the deque and remove it. If the deque was empty, output "error".
+- `pop_back()` – output the last element of the deque and remove it. If the deque was empty, output "error".
+
+`Value` is an integer not exceeding 1000 in absolute value.
+
+### Output format
+Output the result of each command on a separate line. For successful `push_back(x)` and `push_front(x)` commands, do not output anything.
+
+### Example 1
+
+#### Input
+```plaintext
+4
+4
+push_front 861
+push_front -819
+pop_back
+pop_back
+```
+
+#### Output
+```plaintext
+861
+-819
+```
+
+### Example 2
+
+#### Input
+```plaintext
+7
+10
+push_front -855
+push_front 0
+pop_back
+pop_back
+push_back 844
+pop_back
+push_back 823
+```
+
+#### Output
+```plaintext
+-855
+0
+844
+```
+
+### Example 3
+
+#### Input
+```plaintext
+6
+6
+push_front -201
+push_back 959
+push_back 102
+push_front 20
+pop_front
+pop_back
+```
+
+#### Output
+```plaintext
+20
+102
+```
+</details>
