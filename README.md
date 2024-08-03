@@ -5,7 +5,6 @@ Solving algorithmic problems in C++
 [contest.yandex.ru](https://contest.yandex.ru/contest/22449/problems/)
 
 <details><summary>Nearest zero (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint1/nearest_zero.cpp">nearest_zero.cpp</a>)</summary>
-  
   <br>
   
 ### Task
