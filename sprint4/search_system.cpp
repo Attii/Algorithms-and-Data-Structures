@@ -1,27 +1,30 @@
 // https://contest.yandex.ru/contest/24414/run-report/101866296/
 
 /*
---Принцип работы--
-Построение индекса: Создается индекс, где каждому слову сопоставляются 
-документы, в которых оно встречается, и частота вхождения в каждый документ.
-Обработка запросов: Для каждого запроса подсчитывается релевантность 
-документов на основе количества вхождений слов запроса в документы.
+--Principle of Operation--
+Index Building: An index is created where each word is 
+mapped to the documents in which it appears and the frequency 
+of its occurrence in each document.
+Query Processing: For each query, the relevance of documents is 
+calculated based on the frequency of query words in the documents.
 
---Доказательство корректности--
-Индекс: Корректно отображает частоту вхождения каждого слова в документы.
-Обработка запросов: Релевантность рассчитывается правильно, учитывая вклад 
-каждого уникального слова в запросе.
+--Proof of Correctness--
+Index: Correctly reflects the frequency of each word's 
+occurrence in the documents.
+Query Processing: Relevance is calculated correctly, considering 
+the contribution of each unique word in the query.
 
---Временная сложность--
-Построение индекса: O(nk), где n - количество документов, k - среднее количество слов.
-Обработка запросов: O(mq+mlog(m)), где где m - количество запросов, 
-q - размер запроса, то mq отражает обработку каждого слова запроса по 
-отношению к каждому документу, а mlog(m) — сложность сортировки результатов. 
+--Time Complexity--
+Index Building: O(nk), where n is the number of documents and k is 
+the average number of words per document.
+Query Processing: O(mq + mlog(m)), where m is the number of queries and 
+q is the size of the query. The mq term reflects processing each query word 
+against each document, and mlog(m) represents the complexity of sorting the results.
 
---Пространственная сложность--
-Индекс: O(nk), зависит от количества уникальных слов в документах и их 
-частоты встречаемости.
-Обработка запросов: O(n), для хранения релевантности документов.
+--Space Complexity--
+Index: O(nk), depending on the number of unique words in the documents and 
+their frequency of occurrence.
+Query Processing: O(n), for storing the relevance of documents.
 */
 
 
