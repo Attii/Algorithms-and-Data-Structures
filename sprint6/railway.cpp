@@ -1,83 +1,67 @@
 // https://contest.yandex.ru/contest/25070/run-report/113755669/
 
 /*
-Идея для решения была найдена тут: https://ru.stackoverflow.com/questions/1415293/%D0%9A%D0%B0%D0%BA-%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B8%D1%82%D1%8C-%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D1%83-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B3%D1%80%D0%B0%D1%84%D0%B0
+Idea for the solution was found here: [https://ru.stackoverflow.com/questions/1415293/Как-ускорить-проверку-оптимальности-графа](https://ru.stackoverflow.com/questions/1415293/%D0%9A%D0%B0%D0%BA-%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B8%D1%82%D1%8C-%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D1%83-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B3%D1%80%D0%B0%D1%84%D0%B0)
 
---Принцип работы--
-Программа использует графовое представление для проверки оптимальности 
-карты железных дорог. Города представлены узлами графа, а дороги — 
-рёбрами, которые помечены типами 'R' или 'B'. Программа строит граф, 
-затем проверяет наличие циклов для каждого типа ребра отдельно, 
-используя модифицированный метод поиска в глубину (DFS), который 
-оценивает наличие путей с разными типами дорог между парой городов.
+--Principle of Operation--
+The program uses a graph representation to check the optimality of the railroad map. Cities are 
+represented as graph nodes, and roads are edges marked with types 'R' or 'B'. The program builds 
+the graph and then checks for the presence of cycles for each type of edge separately using a modified 
+depth-first search (DFS) method that evaluates the presence of paths with different types of roads between 
+pairs of cities.
 
---Доказательство корректности--
-Докажем корректность алгоритма методом от противного
+--Proof of Correctness--
+We will prove the correctness of the algorithm by contradiction.
 
-Предположим, что карта железных дорог является оптимальной. Это означает,
-что для каждой пары городов A и B,где A < B, существует маршрут только 
-одного типа, R или B.
+Assume that the railroad map is optimal. This means that for each pair of cities A and B, where A < B, 
+there exists a route of only one type, either R or B.
 
-Заметим, что, исходя из условия, для любого A < n, где n - количество 
-вершин, всегда описаны n-A маршрутов, таким образом из такого A всегда 
-можно построить некоторый маршрут до B, где A < B < n. Таким образом мы 
-исключаем ситуации, в которой не существует хотя бы одного маршрута из A 
-в B. 
+Note that, based on the condition, for any A < n, where n is the number of vertices, there are always n-A 
+routes described, thus from such an A, it is always possible to build some route to B, where A < B < n. This 
+excludes situations where there is no route from A to B.
 
-Производим инверсию рёбер одного типа, например, рёбер типа R. После 
-инверсии:
+We perform an inversion of one type of edge, for example, R-type edges. After inversion:
 
-Рёбра типа R будут идти от города с большим номером к городу с меньшим 
-номером.
-Рёбра типа B сохранят своё исходное направление (от меньшего к большему).
-Затем применяем DFS для поиска циклов.
+- R-type edges will go from a city with a higher number to a city with a lower number.
+- B-type edges will retain their original direction (from smaller to larger).
 
-Предположим, метод нашел цикл. Цикл в этом контексте означает существование 
-пути, который возвращается в исходную точку, проходя через рёбра обоих 
-типов. Однако по предположению, карта должна быть оптимальной, и такого 
-пути существовать не должно. Значит, этот цикл должен состоять только из 
-рёбер одного типа только R или только B.
+Then we apply DFS to search for cycles.
 
-Если бы цикл состоял из рёбер R и B, это бы означало, что существует путь 
-между какими-то городами, использующий оба типа дорог, что противоречит 
-оптимальности карты. Это противоречие свидетельствует о том, что наша 
-изначальная гипотеза о том, что метод может ошибочно определить карту 
-как неоптимальную, неверна.
+Assume the method found a cycle. A cycle in this context means the existence of a path that returns to 
+the starting point, passing through edges of both types. However, by assumption, the map should be optimal, 
+and such a path should not exist. Thus, this cycle must consist only of edges of one type, either R or B only.
 
-Если метод обнаруживает цикл после инверсии рёбер, это действительно 
-указывает на неоптимальность карты, так как показывает, что между 
-какими-то городами можно перемещаться, используя оба типа дорог.
+If the cycle consisted of R and B edges, it would mean there exists a path between some cities using both types of 
+roads, which contradicts the optimality of the map. This contradiction indicates that our initial hypothesis that 
+the method could erroneously determine the map as non-optimal is incorrect.
 
-Следовательно, предположение о возможной ошибке метода не подтверждается, 
-метод корректен. Это доказывает, что если метод обнаруживает цикл, карта 
-действительно не оптимальна, и наоборот, если метод не обнаруживает 
-цикл, карта оптимальна.
+If the method detects a cycle after edge inversion, it indeed indicates the non-optimality of the map, as it shows 
+that it is possible to travel between some cities using both types of roads.
 
-P.S. Пример из код ревью ялвяется некорректным "1->3=>2->4=>1". Такой
-цикл может получиться из графа 1->3, 1=> 4, 2=>3, 2->4, а такой граф 
-по условию задачи получиться не может, так как в условии явно прописано, 
-что для любого i < n выполняется условие: наличие n-i ребер. В примере же 
-пропущено ребро 1 -> 2. 
+Therefore, the assumption of a possible error in the method is not confirmed, and the method is correct. This proves 
+that if the method detects a cycle, the map is indeed not optimal, and conversely, if the method does not detect a cycle, 
+the map is optimal.
 
---Временная сложность--
-Сложность программы определяется двумя основными факторами:
+P.S. The example from the code review is incorrect "1->3=>2->4=>1". Such a cycle can result from the graph 1->3, 1=>4, 2=>3, 2->4, 
+but such a graph cannot result from the task condition, as it explicitly states that for any i < n, the condition holds: 
+there are n-i edges. In the example, the edge 1->2 is missing.
 
-1)Построение графа: O(n^2), где n - количество городов. Это связано с 
-тем, что для каждого города может быть до n - 1 дорог.
-2)Проверка циклов: O(V + E), где V - количество вершин, а E - количество 
-ребер. В худшем случае каждая вершина соединена с каждой другой вершиной, 
-что приводит к E = O(n^2).
+--Time Complexity--
+The program's complexity is determined by two main factors:
 
-Итоговая временная сложность алгоритма — O(n^2).
+1. Building the graph: O(n^2), where n is the number of cities. This is because each city can have up to n-1 roads.
+2. Cycle checking: O(V + E), where V is the number of vertices and E is the number of edges. In the worst case, 
+each vertex is connected to every other vertex, leading to E = O(n^2).
 
---Пространственная сложность--
-Алгоритм использует:
+The overall time complexity of the algorithm is O(n^2).
 
--Граф в виде вектора векторов для хранения ребер: O(n^2) памяти.
--Вектор цветов для каждой вершины для отслеживания статуса посещения в DFS: O(n).
+--Space Complexity--
+The algorithm uses:
 
-Итоговая пространственная сложность составляет O(n^2) из-за хранения 
-графа, что является наибольшим требованием к памяти в алгоритме.
+- A graph in the form of a vector of vectors to store edges: O(n^2) memory.
+- A vector of colors for each vertex to track the visit status in DFS: O(n).
+
+The overall space complexity is O(n^2) due to storing the graph, which is the largest memory requirement in the algorithm.
 */
 
 #include <iostream>
