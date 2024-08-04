@@ -1,45 +1,43 @@
 // https://contest.yandex.ru/contest/23815/run-report/99984394/
 
 /*
---Принцип работы--
+--Principle of Operation--
 
-Перед поиском мы должны найти начало и конец сломанного массива. Для 
-этого у нас есть функция, где мы ищем начало и конец с помощью бинарного 
-поиска. Если средний элемент массива меньше последнего элемента, то пара 
-начало старт находится в первой половине массива, иначе во второй половине. 
-Это связано с тем, что переходный момент нарушает сортировку. 
+Before searching, we need to find the start and end of the broken array. 
+For this, we have a function that finds the start and end using binary search. 
+If the middle element of the array is less than the last element, then the start 
+point is in the first half of the array, otherwise in the second half. This is 
+because the transition point disrupts the sorting order.
 
-Перед запуском функции надо обязательно проверить, не является ли массив 
-отсортированным. Проверка происходит путем сравнения последнего элемента 
-и первого. Если первый меньше последнего, то значит сортировка не нарушена.
+Before running the function, we must check if the array is already sorted. This 
+check is done by comparing the last element and the first element. If the first is 
+less than the last, then the array is sorted.
 
-После того, как найдены начало и конец массива, с помощью бинарного поиска 
-ищем нужный элемент. Перед этим проверяем, если искомый элемент меньше 
-последнего, то ищем от найденного начало до последнего элемента включительно, 
-иначе ищем от первого элемента до найденного конца, включительно. Связано 
-это с тем, что массив частично отсортирован и благодаря этому мы можем 
-искать сразу в нужной нам части массива.
+Once the start and end of the array are found, we search for the desired element using 
+binary search. Before this, we check if the desired element is less than the last element; 
+if so, we search from the found start to the last element inclusively. Otherwise, we 
+search from the first element to the found end inclusively. This is because the array is 
+partially sorted, and thus we can directly search in the needed part of the array.
 
---Доказательство корректности--
+--Proof of Correctness--
 
-Поиска начало и конца происходит за время О(log(n)), так как мы ищем 
-постоянно в одной половине массива, пока не останется два элемента. 
-Модифицированный бинарный поиск. 
+Finding the start and end points takes O(log(n)) time because we are constantly searching 
+in one half of the array until two elements are left. This is a modified binary search.
 
-Поиск элемента происходит тоже за О(log(n)), так как мы ищем элемент с 
-помощью бинарного поиска.
+Finding the element also takes O(log(n)) time because we search for the element using 
+binary search.
 
---Временная сложность--
+--Time Complexity--
 
-Смотреть выше.
+As stated above.
 
---Пространственная сложность--
+--Space Complexity--
 
-bin_search использует цикл, что требует O(1) доп памяти. 
+`bin_search` uses a loop, which requires O(1) additional memory.
 
-Сложность find_end определяется глубиной стека вызова функции, 
-так как она является рекурсивной. find_end использует O(log(n)) 
-доп памяти, где n длина массива.
+The complexity of `find_end` is determined by the depth of the function call stack since 
+it is recursive. `find_end` uses O(log(n)) additional memory, where n is the length of 
+the array.
 */
 
 
