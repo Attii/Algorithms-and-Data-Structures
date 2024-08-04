@@ -1,39 +1,37 @@
 // https://contest.yandex.ru/contest/23815/run-report/99282749/
 
 /*
---Принцип работы--
+--Principle of Operation--
 
-Принцип работы алгоритма описан в условии задачи. Так что стоит обратить 
-внимание на компаратор. 
+The principle of the algorithm is described in the problem statement. 
+Therefore, attention should be paid to the comparator.
 
-Компаратор в первую очередь проверяет количество решённых задач. Если 
-количество одинаковое, то мы проверяем количество штрафов. Если 
-штрафы равны, то лексиграфически сравниваем имена.
+The comparator first checks the number of solved problems. If the numbers 
+are the same, it checks the penalties. If the penalties are equal, it 
+lexicographically compares the names.
 
-Если компаратор возвращает true, то двигаем указатель.
+If the comparator returns true, the pointer is moved.
 
---Доказательство корректности--
+--Proof of Correctness--
 
-Дополнительный массив для хранения элементов не используется => O(n^2) доп
-памяти не требуется. 
+An additional array for storing elements is not used => O(n^2) additional 
+memory is not required.
 
---Временная сложность-- 
+--Time Complexity--
 
-В лучшем и среднем случае: O(n*log(n))
-В худшем случае: O(n^2)
+- In the best and average cases: O(n*log(n))
+- In the worst case: O(n^2)
 
---Пространственная сложность--
+--Space Complexity--
 
-В среднем случае, когда элементы разделяются примерно поровну на каждом 
-шаге, глубина рекурсии будет пропорциональна логарифму от размера массива, 
-т.е. O(log n). Это объясняется тем, что массив размером n на каждом шаге 
-делится на две примерно равные части.
-
-В худшем случае, когда каждое разделение происходит так, что одна часть 
-содержит n-1 элементов, а другая - 0 (например, если массив уже отсортирован 
-или если все элементы равны), глубина рекурсии будет O(n). Это потому, 
-что рекурсивный вызов будет происходить n раз, при этом на каждом шаге 
-размер обрабатываемого массива уменьшается только на 1.
+- In the average case, when elements are roughly evenly divided at each step, 
+the recursion depth will be proportional to the logarithm of the array size, i.e., 
+O(log n). This is because an array of size n is divided into two roughly equal parts 
+at each step.
+- In the worst case, when each division results in one part containing n-1 elements and 
+the other containing 0 (e.g., if the array is already sorted or if all elements are equal), 
+the recursion depth will be O(n). This is because the recursive call will occur n times, with 
+the size of the processed array decreasing by only 1 at each step.
 */
 
 #include <iostream>
