@@ -1,29 +1,27 @@
 //https://contest.yandex.ru/contest/24810/run-report/112920902/
 
 /*
---Принцип работы--
-Код реализует сортировку кучей, которая включает в себя создание 
-максимальной кучи из входных данных и последующее извлечение 
-максимального элемента для формирования отсортированного массива. 
-Каждый участник соревнования характеризуется количеством решённых задач, 
-штрафом и логином. Операции с кучей реализованы через функции sift_up и 
-sift_down, которые обеспечивают поддержание свойств максимальной кучи.
+--Principle of Operation--
+The code implements heap sort, which includes creating a max heap from the input 
+data and subsequently extracting the maximum element to form a sorted array. 
+Each competition participant is characterized by the number of solved problems, 
+penalty, and login. Heap operations are implemented through the `sift_up` and `sift_down` 
+functions, which maintain the properties of the max heap.
 
---Доказательство корректности--
-Код корректно реализует базовые операции работы с кучей:
+--Proof of Correctness--
+The code correctly implements the basic heap operations:
 
-'sift_up' поддерживает свойства кучи при добавлении нового элемента.
-'sift_down' восстанавливает свойства кучи после удаления корневого элемента 
-(максимального элемента кучи).
+- `sift_up` maintains the heap properties when adding a new element.
+- `sift_down` restores the heap properties after removing the root element (the maximum 
+element of the heap).
 
---Временная сложность--
-Построение кучи: O(n), где n — количество участников.
-Извлечение элементов из кучи для формирования отсортированного массива: 
-O(n log n), так как каждое извлечение требует O(log n) времени для 
-восстановления свойств кучи.
+--Time Complexity--
+- Building the heap: O(n), where n is the number of participants.
+- Extracting elements from the heap to form the sorted array: O(n log n), as each extraction 
+requires O(log n) time to restore the heap properties.
 
---Пространственная сложность--
-Пространственная сложность: O(n) для хранения элементов кучи.
+--Space Complexity--
+- Space complexity: O(n) for storing the heap elements.
 */
 
 #include <iostream>
