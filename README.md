@@ -435,10 +435,6 @@ timofey
 
 ### Task 
 
-Конечно, вот перевод задания на английский язык:
-
----
-
 Timofey, as a good manager, keeps information about his employees' salaries in a database and constantly updates it. He has tasked you with implementing a hash table to store this salary database.
 
 The hash table should support the following operations:
