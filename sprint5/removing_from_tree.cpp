@@ -1,39 +1,33 @@
 //https://contest.yandex.ru/contest/24810/run-report/112902165/
 
 /*
---Принцип работы--
-Функция remove удаляет узел с заданным ключом из бинарного дерева поиска, 
-сохраняя свойства BST. Рекурсивно ищет узел с ключом, сравнивая его с 
-корневым узлом. Если ключ больше, функция переходит к правому поддереву, 
-если меньше — к левому. При нахождении узла с нужным ключом, функция 
-обрабатывает три случая:
+--Principle of Operation--
+The `remove` function deletes a node with the given key from a binary search tree (BST) 
+while maintaining the BST properties. It recursively searches for the node with the key by 
+comparing it with the root node. If the key is greater, the function moves to the right subtree; 
+if it is smaller, it moves to the left subtree. Upon finding the node with the desired key, 
+the function handles three cases:
 
-  1) Узел без левого поддерева (возвращается правое поддерево).
-  2) Узел без правого поддерева (возвращается левое поддерево).
-  3) Узел с обоими поддеревьями (находит максимальный узел в левом 
-     поддереве и заменяет значение удаляемого узла на его значение, 
-     после чего рекурсивно удаляет максимальный узел).
+1. Node with no left subtree (returns the right subtree).
+2. Node with no right subtree (returns the left subtree).
+3. Node with both subtrees (finds the maximum node in the left subtree, replaces the value of 
+the node to be deleted with its value, and then recursively deletes the maximum node).
 
+--Proof of Correctness--
+The code correctly handles all cases of node deletion from the BST:
+1. If the node has only one child, it can be safely removed by replacing it with that child.
+2. If the node has two children, using the rightmost node from the left subtree ensures that all 
+BST properties remain intact after deletion.
 
---Доказательство корректности--
-Код корректно обрабатывает все случаи удаления узла из BST:
-  1) Если узел имеет только одного ребенка, его можно безопасно удалить, 
-  заменив его этим ребенком.
-  2)Если у узла два ребенка, использование крайне правого узла из левого 
-  поддерева гарантирует, что все свойства BST останутся в силе после 
-  удаления.
+--Time Complexity--
+In the worst case (degenerate tree, i.e., a list), deleting a node will have a complexity of O(n), 
+where n is the number of nodes in the tree. In a balanced tree, the complexity will be O(log n) 
+due to halving the number of nodes at each step of the recursion.
 
---Временная сложность--
-В худшем случае (вырожденное дерево, т.е. список) удаление узла будет 
-иметь сложность O(n), где n — количество узлов в дереве. В 
-сбалансированном дереве сложность будет O(log n) за счет деления 
-количества узлов пополам на каждом шаге рекурсии.
-
---Пространственная сложность--
-Так как функция использует рекурсию без хранения дополнительных данных, 
-за исключением рекурсивных вызовов, пространственная сложность будет O(h),
-где h — высота дерева. В худшем случае это может быть O(n) для 
-вырожденного дерева, и O(log n) для сбалансированного дерева.
+--Space Complexity--
+Since the function uses recursion without storing additional data except for the recursive calls, 
+the space complexity will be O(h), where h is the height of the tree. In the worst case, this can be 
+O(n) for a degenerate tree, and O(log n) for a balanced tree.
 */
 
 #ifndef REMOTE_JUDGE
