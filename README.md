@@ -605,3 +605,104 @@ dfs dfs dfs dfs bfs
 ```
 
 </details>
+
+## 5. Trees 
+[contest.yandex.ru](https://contest.yandex.ru/contest/24809/problems/)
+
+<details><summary>Pyramid sort (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint5/pyramid_sort.cpp">pyramid_sort.cpp</a>)</summary>
+<br>
+
+### Task 
+
+Timofey decided to organize a programming competition to find talented interns. The tasks are selected, participants are registered, and tests are written. The only thing left is to determine the winner at the end of the competition.
+
+Each participant has a unique login. When the competition ends, two indicators will be associated with each participant: the number of solved problems Pi and the penalty size Fi. Penalties are awarded for unsuccessful attempts and the time spent on the problem.
+
+Timofey decided to sort the results table as follows: when comparing two participants, the one who has solved more problems will be ranked higher. If the number of solved problems is the same, the participant with the lower penalty will be ranked higher. If the penalties are also the same, the participant whose login comes first in alphabetical (lexicographical) order will be ranked higher.
+
+Timofey ordered hoodies for the winners and went to the store to pick them up the day before. In his absence, he entrusted you to implement the heap sort algorithm for the results table.
+
+### Input Format
+The first line contains the number of participants `n`, 1 ≤ n ≤ 100,000.
+Each of the next `n` lines contains information about one participant.
+The `i`-th participant is described by three parameters:
+
+- a unique login (a string of lowercase Latin letters no more than 20 characters long)
+- the number of solved problems `Pi`
+- the penalty `Fi`
+
+`Fi` and `Pi` are integers in the range from 0 to 10^9.
+
+### Output Format
+For the sorted list of participants, print their logins one per line in order.
+
+### Example 1
+
+**Input**:
+```plaintext
+5
+alla 4 100
+gena 6 1000
+gosha 2 90
+rita 2 90
+timofey 4 80
+```
+
+**Output**:
+```plaintext
+gena
+timofey
+alla
+gosha
+rita
+```
+
+### Example 2
+
+**Input**:
+```plaintext
+5
+alla 0 0
+gena 0 0
+gosha 0 0
+rita 0 0
+timofey 0 0
+```
+
+**Output**:
+```plaintext
+alla
+gena
+gosha
+rita
+timofey
+```
+  
+</details>
+
+<details><summary>Remove the node (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint5/removing_from_tree.cpp">removing_from_tree.cpp</a>)</summary>
+  <br>
+  
+  ### Task 
+
+You are given a binary search tree (BST) containing unique integer keys. Find the node with the given key and delete it from the tree while ensuring the tree remains a valid BST. If the key is not in the tree, do not modify the tree.
+The function is provided with the root of the tree and the key to delete. The function should return the root of the modified tree. The deletion complexity should be O(h), where h is the height of the tree.
+Creating new nodes is not allowed.
+Use the provided code templates for this task, available at the following links:
+
+- C++
+- Java
+- JavaScript
+- Python
+- C#
+- Go
+- Kotlin
+- Swift
+
+### Input Format
+The tree keys are natural numbers not exceeding 10^9. In the final solution, do not define your own structure/class describing the tree node.
+
+### Output Format
+By default, the Make compiler is selected. The solution should be submitted as a file with the extension corresponding to your programming language. If you are writing in Java, the file name should be `Solution.java`, for C# – `Solution.cs`. For other languages, name the file `my_solution.ext`, replacing `ext` with the appropriate extension.
+
+</details>
