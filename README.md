@@ -706,3 +706,136 @@ The tree keys are natural numbers not exceeding 10^9. In the final solution, do 
 By default, the Make compiler is selected. The solution should be submitted as a file with the extension corresponding to your programming language. If you are writing in Java, the file name should be `Solution.java`, for C# – `Solution.cs`. For other languages, name the file `my_solution.ext`, replacing `ext` with the appropriate extension.
 
 </details>
+
+## 6. Graphs
+[contest.yandex.ru](https://contest.yandex.ru/contest/25069/problems/)
+
+<details><summary>Expensive Network (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint6/MaximumSpanningTree.cpp">MaximumSpanningTree.cpp</a>)</summary>
+<br>
+
+Timofey decided to connect all the computers in his company into a single network. For this purpose, he planned to build a minimum spanning tree to use resources more efficiently.
+
+However, the management announced that the budget allocated for the network turned out to be very large and must be spent urgently. Therefore, Timofey is now interested in not the minimum but the maximum spanning trees.
+
+He has tasked you with finding the weight of such a maximum spanning tree in an undirected graph that represents the office layout.
+
+### Input Format
+The first line contains the number of vertices `n` and edges `m` of the graph (1 ≤ n ≤ 1000, 0 ≤ m ≤ 100000).
+
+Each of the next `m` lines contains edges in the form of triples of numbers `u`, `v`, `w`. `u` and `v` are the vertices that the edge connects. `w` is its weight (1 ≤ u, v ≤ n, 0 ≤ w ≤ 10000). The graph can have loops and multiple edges. The graph may be disconnected.
+
+### Output Format
+If a maximum spanning tree exists, output its weight. Otherwise (if the graph has multiple connected components), output the phrase "Oops! I did it again".
+
+### Example 1
+
+**Input**:
+```plaintext
+4 4
+1 2 5
+1 3 6
+2 4 8
+3 4 3
+```
+
+**Output**:
+```plaintext
+19
+```
+
+### Example 2
+
+**Input**:
+```plaintext
+3 3
+1 2 1
+1 2 2
+2 3 1
+```
+
+**Output**:
+```plaintext
+3
+```
+
+### Example 3
+
+**Input**:
+```plaintext
+2 0
+```
+
+**Output**:
+```plaintext
+Oops! I did it again
+```
+  
+</details>
+
+<details><summary>Railways (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint6/railway.cpp">railway.cpp</a>)</summary>
+<br>
+
+### Task 
+
+In the country X, there are `n` cities, numbered from 1 to `n`. The capital of the country is numbered `n`. There are railroads between the cities.
+
+However, the railroads can be of two types based on the width of the track. Any train can only travel on one type of track. One type of track is labeled as R, and the other as B. This means that if a route from one city to another has both R-type and B-type roads, no train can travel on that route. One can travel from one city to another only by a route consisting exclusively of R-type roads or only of B-type roads.
+
+But that's not all. In the country X, one can only move along the roads from a city with a smaller number to a city with a larger number. This explains the large influx of residents to the capital, which is numbered `n`.
+
+A railroad map is called optimal if there is no pair of cities A and B such that one can reach B from A by both R-type and B-type roads. In other words, for any pair of cities, it is true that from a city with a smaller number to a city with a larger number one can travel by roads of only one type or no route can be built at all. Determine whether the given map is optimal.
+
+### Input Format
+The first line contains the number `n` (1 ≤ n ≤ 5000) — the number of cities in the country. The railroad map is given in the following format.
+
+The map is given in `n-1` lines. In the `i-th` line, the roads from city `i` to cities `i+1`, `i+2`, ..., `n` are described. The line contains `n - i` characters, each of which is either R or B. If the `j-th` character of the `i-th` line is "B", then there is a road of type "B" from city `i` to city `i + j`. Similarly for type "R".
+
+### Output Format
+Output "YES" if the map is optimal, and "NO" otherwise.
+
+### Example 1
+
+**Input**:
+```plaintext
+3
+RB
+R
+```
+
+**Output**:
+```plaintext
+NO
+```
+
+### Example 2
+
+**Input**:
+```plaintext
+4
+BBB
+RB
+B
+```
+
+**Output**:
+```plaintext
+YES
+```
+
+### Example 3
+
+**Input**:
+```plaintext
+5
+RRRB
+BRR
+BR
+R
+```
+
+**Output**:
+```plaintext
+NO
+```
+  
+</details>
