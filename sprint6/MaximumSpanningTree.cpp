@@ -1,48 +1,41 @@
 // https://contest.yandex.ru/contest/25070/run-report/113755669/
 
 /*
---Принцип работы--
-  Данный алгоритм основан на модифицированной версии алгоритма Прима для 
-построения максимального остовного дерева (Maximum Spanning Tree). 
-Он начинается с произвольной вершины и последовательно добавляет к остову 
-наиболее тяжёлое ребро, соединяющее дерево с одной из оставшихся вершин, 
-пока не добавятся все вершины графа или пока не закончатся доступные 
-рёбра.
+--Principle of Operation--
+The algorithm is based on a modified version of Prim's algorithm for constructing 
+a Maximum Spanning Tree (MST). It starts with an arbitrary vertex and sequentially adds 
+the heaviest edge connecting the tree to one of the remaining vertices until all vertices of 
+the graph are added or until no more available edges remain.
 
-Алгоритм использует:
-    'priority_queue' для хранения и быстрого извлечения максимальных рёбер, 
-  что позволяет каждый раз добавлять в остов ребро с максимальным весом.
-    Массив флагов 'is_added' для отслеживания состояния добавления каждой 
-  вершины в остов, что уменьшает потребление памяти и упрощает управление 
-  состоянием вершин.
+The algorithm uses:
+- `priority_queue` to store and quickly retrieve the maximum edges, allowing the addition of 
+the heaviest edge to the spanning tree each time.
+- An `is_added` flag array to track the state of each vertex's addition to the spanning tree, 
+reducing memory consumption and simplifying vertex state management.
 
---Доказательство корректности--
-Алгоритм корректно строит максимальное остовное дерево:
+--Proof of Correctness--
+The algorithm correctly constructs a Maximum Spanning Tree:
 
-  Алгоритм выбирает на каждом шаге максимальное ребро, которое можно 
-добавить к остову без образования цикла. Это гарантирует, что включаемые 
-рёбра образуют дерево.
-  Алгоритм завершается, когда все вершины добавлены в остов, или когда 
-больше нет рёбер для добавления. Если после завершения работы алгоритма 
-остались недобавленные вершины, это означает, что граф несвязен.
+- At each step, the algorithm selects the maximum edge that can be added to the spanning tree without 
+forming a cycle. This ensures that the included edges form a tree.
+- The algorithm terminates when all vertices are added to the spanning tree or when no more edges are 
+available for addition. If vertices remain unadded after the algorithm finishes, it means the graph is 
+disconnected.
 
---Временная сложность--
-  Добавление рёбер в приоритетную очередь: Каждое ребро добавляется в 
-кучу один раз, операция добавления имеет сложность O(log m), где m - 
-количество рёбер.
-  Извлечение рёбер из приоритетной очереди: Для каждой из n−1 добавленной 
-вершины потребуется извлечь ребро, каждое извлечение имеет сложность 
-O(log m).
+--Time Complexity--
+- Adding edges to the priority queue: Each edge is added to the heap once, with the addition operation 
+having a complexity of O(log m), where m is the number of edges.
+- Extracting edges from the priority queue: For each of the n-1 added vertices, an edge extraction is required, 
+with each extraction having a complexity of O(log m).
 
-Итоговая временная сложность алгоритма составляет O((n + m)log m).
+The overall time complexity of the algorithm is O((n + m) log m).
 
---Пространственная сложность--
-4. Пространственная сложность
-  Хранение графа: Для хранения списка смежности требуется O(m) памяти.
-  Дополнительные структуры данных: is_added использует O(n) памяти, 
-priority_queue может содержать до m рёбер, что также требует O(m) памяти.
+--Space Complexity--
+- Storing the graph: An adjacency list requires O(m) memory.
+- Additional data structures: `is_added` uses O(n) memory, and `priority_queue` can contain up to m edges, also 
+requiring O(m) memory.
 
-Таким образом, общая пространственная сложность составляет O(m+n).
+Thus, the total space complexity is O(m + n).
 */
 #include <iostream>
 #include <vector>
