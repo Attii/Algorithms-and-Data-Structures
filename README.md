@@ -426,3 +426,101 @@ timofey
 ```
 
 </details>
+
+## 4. Hash function
+[contest.yandex.ru](https://contest.yandex.ru/contest/23991/problems/)
+
+<details><summary>Hash table (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint4/hash_table.cpp">hash_table.cpp</a>)</summary>
+<br>
+
+### Task 
+
+Конечно, вот перевод задания на английский язык:
+
+---
+
+Timofey, as a good manager, keeps information about his employees' salaries in a database and constantly updates it. He has tasked you with implementing a hash table to store this salary database.
+
+The hash table should support the following operations:
+
+- `put key value` — adding a key-value pair. If the given key already exists in the table, the corresponding value is updated.
+- `get key` — retrieving the value by key. If the key is not in the table, output "None". Otherwise, output the found value.
+- `delete key` — deleting a key from the table. If the key does not exist, output "None", otherwise output the value stored by this key and delete the key.
+
+The table stores unique keys.
+
+### Implementation Requirements:
+
+- You cannot use built-in hash table implementations provided by programming languages (e.g., `std::unordered_map` in C++, `dict` in Python, `HashMap` in Java, etc.).
+- Handle collisions using chaining or open addressing.
+- All operations should run in O(1) on average.
+- Rehashing and resizing the hash table are not required.
+- Keys and values, employee IDs and their salaries, are integers. Support for arbitrary hashable types is not required.
+
+### Input Format
+
+The first line specifies the total number of queries to the table `n` (1 ≤ n ≤ 10^6).
+
+The next `n` lines contain the queries, which are of three types: `get`, `put`, `delete` — as described in the requirements.
+
+All keys and values are integers not exceeding 10^9 in absolute value. Numbers can be negative.
+
+In any sequence of commands, the number of keys in the hash table cannot exceed 10^5.
+
+### Output Format
+
+For each `get` and `delete` query, output the response on a separate line.
+
+### Example 1
+
+**Input**:
+```
+10
+get 1
+put 1 10
+put 2 4
+get 1
+get 2
+delete 2
+get 2
+put 1 5
+get 1
+delete 2
+```
+
+**Output**:
+```
+None
+10
+4
+4
+None
+5
+None
+```
+
+### Example 2
+
+**Input**:
+```
+8
+get 9
+delete 9
+put 9 1
+get 9
+put 9 2
+get 9
+put 9 3
+get 9
+```
+
+**Output**:
+```
+None
+None
+1
+2
+3
+```
+
+</details>
