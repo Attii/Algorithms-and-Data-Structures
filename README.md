@@ -347,3 +347,83 @@ To filter out inefficient solutions, your function will be run from 10000 to 100
 1
 ```
 </details>
+
+<details><summary>Efficient quick sort (<a href="https://github.com/Attii/Algorithms-and-Data-Structures/blob/main/sprint3/quick_sort_in_line.cpp">quick_sort_in_line.cpp</a>)</summary>
+  <br>
+
+  ### Task 
+
+Timofey decided to organize a competitive programming contest to find talented interns. The tasks are prepared, participants are registered, and tests are written. The only thing left is to determine the winner at the end of the competition.
+
+Each participant has a unique login. When the competition is over, each participant will be associated with two indicators: the number of solved problems Pi and the penalty size Fi. Penalties are awarded for unsuccessful attempts and the time taken to solve the problem.
+
+Timofey decided to sort the results table as follows: when comparing two participants, the one who has solved more problems will be ranked higher. If the number of solved problems is the same, the participant with the lower penalty will be ranked higher. If the penalties are also the same, the participant whose login comes first in alphabetical (lexicographical) order will be ranked higher.
+
+Timofey ordered hoodies for the winners and went to the store to pick them up the day before. In his absence, he entrusted you to implement the quicksort algorithm for the results table. Since Timofey loves competitive programming and dislikes wasting RAM, your implementation of the sorting algorithm must not use O(n) additional memory for intermediate data (this modification of quicksort is called "in-place").
+
+### How in-place quicksort works
+
+As with the usual quicksort that uses additional memory, you need to select a pivot element, and then reorder the array. We will make sure that elements not exceeding the pivot come first, followed by elements greater than the pivot.
+
+Then the sort is called recursively for the two resulting parts. The step of partitioning elements into groups usually uses additional memory in the ordinary algorithm. Now let's see how to implement this step in-place.
+
+Let's assume we have chosen a pivot element. We will use two pointers, left and right, which initially point to the left and right ends of the segment, respectively. Then we will move the left pointer to the right as long as it points to an element less than the pivot. Similarly, we move the right pointer to the left as long as it points to an element greater than the pivot. Eventually, the left pointer will point to an element that belongs to the second group, and the right pointer will point to an element that belongs to the first group. We will swap these elements and move the pointers to the next elements. We will repeat this action until the left and right pointers meet.
+
+### Input format
+The first line contains the number of participants `n`, where 1 ≤ n ≤ 100,000.
+Each of the next `n` lines contains information about one participant.
+The `i`-th participant is described by three parameters:
+
+- a unique login (a string of lowercase Latin letters no longer than 20 characters)
+- the number of solved problems `Pi`
+- the penalty `Fi`
+
+`Fi` and `Pi` are integers in the range from 0 to 10^9.
+
+### Output format
+For the sorted list of participants, print their logins one per line in order.
+
+### Example 1
+
+**Input**:
+```
+5
+alla 4 100
+gena 6 1000
+gosha 2 90
+rita 2 90
+timofey 4 80
+```
+
+**Output**:
+```
+gena
+timofey
+alla
+gosha
+rita
+```
+
+### Example 2
+
+**Input**:
+```
+5
+alla 0 0
+gena 0 0
+gosha 0 0
+rita 0 0
+timofey 0 0
+```
+
+**Output**:
+```
+alla
+gena
+gosha
+rita
+timofey
+```
+
+---
+</details>
