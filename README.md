@@ -528,7 +528,7 @@ None
 
 Timofey is developing his own search engine.
 
-There are n documents, each of which is a text made up of words. A search index needs to be built from these documents. The system will receive queries as input. A query is a set of words. The task is to output the top 5 most relevant documents for each query.
+There are `n` documents, each of which is a text made up of words. A search index needs to be built from these documents. The system will receive queries as input. A query is a set of words. The task is to output the top 5 most relevant documents for each query.
 
 The relevance of a document is calculated as follows: for each unique word in the query, count its occurrences in the document, and sum these counts for all words in the query. The total sum is the relevance of the document. The higher the sum, the more relevant the document is to the query.
 
@@ -537,11 +537,11 @@ Documents in the output are sorted by decreasing relevance. If the relevance of 
 Consider cases where queries consist of words that appear in a small number of documents. What if a word appears many times in one document?
 
 ### Input Format
-The first line contains a natural number n — the number of documents in the database (1 ≤ n ≤ 10^4).
+The first line contains a natural number `n` — the number of documents in the database (1 ≤ n ≤ 10^4).
 
-The next n lines contain the documents, one per line. Each document consists of several words separated by a single space, made up of lowercase Latin letters. The length of each document does not exceed 1000 characters. A document is never empty.
+The next `n` lines contain the documents, one per line. Each document consists of several words separated by a single space, made up of lowercase Latin letters. The length of each document does not exceed 1000 characters. A document is never empty.
 
-The next line contains the number of queries — a natural number m (1 ≤ m ≤ 10^4). The following m lines contain the queries, one per line. Each query consists of one or more words separated by a single space, made up of lowercase Latin letters. The length of each query does not exceed 100 characters. A query is never empty.
+The next line contains the number of queries — a natural number `m` (1 ≤ m ≤ 10^4). The following `m` lines contain the queries, one per line. Each query consists of one or more words separated by a single space, made up of lowercase Latin letters. The length of each query does not exceed 100 characters. A query is never empty.
 
 ### Output Format
 For each query, output the numbers of the top five most relevant documents on one line. If fewer than five documents are found, output as many as are found. Do not output documents with a relevance of 0.
@@ -549,7 +549,7 @@ For each query, output the numbers of the top five most relevant documents on on
 ### Example 1
 
 **Input**:
-```
+```plaintext
 3
 i love coffee
 coffee with milk and sugar
@@ -561,7 +561,7 @@ mary likes black coffee without milk
 ```
 
 **Output**:
-```
+```plaintext
 1 2
 3
 2 1
@@ -570,7 +570,7 @@ mary likes black coffee without milk
 ### Example 2
 
 **Input**:
-```
+```plaintext
 6
 buy flat in moscow
 rent flat in moscow
@@ -583,14 +583,14 @@ flat in moscow for crazy weekends
 ```
 
 **Output**:
-```
+```plaintext
 4 5 1 2 3
 ```
 
 ### Example 3
 
 **Input**:
-```
+```plaintext
 3
 i like dfs and bfs
 i like dfs dfs
@@ -600,7 +600,7 @@ dfs dfs dfs dfs bfs
 ```
 
 **Output**:
-```
+```plaintext
 3 1 2
 ```
 
