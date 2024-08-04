@@ -839,3 +839,10 @@ NO
 ```
   
 </details>
+
+## 7.  Greedy Algorithms and Dynamic Programming
+[contest.yandex.ru](https://contest.yandex.ru/contest/25596/problems/)
+
+
+## 8.  Algorithms on strings
+[contest.yandex.ru](https://contest.yandex.ru/contest/26131/problems/)
